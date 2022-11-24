@@ -44,3 +44,24 @@ INSERT INTO postac VALUES ('10261285256', 10, 'Loko', 'waz', '2010-06-12', 3, NU
 CREATE TABLE marynarz LIKE postac;
 
 INSERT INTO marynarz SELECT * FROM postac WHERE statek IS NOT NULL;
+
+ALTER TABLE marynarz ADD FOREIGN KEY (statek) REFERENCES statek(nazwa_statku);
+
+update postac set statek = NULL;
+
+delete from postac where nazwa="Wiking 1";
+
+alter table postac drop foreign key postac_ibfk_1;
+
+alter table marynarz drop foreign key marynarz_ibfk_1;
+
+drop table statek;
+
+INSERT INTO zwierz (nazwa, wiek) SELECT (nazwa, wiek) FROM postac WHERE rodzaj='waz' AND rodzaj='ptak';
+
+CREATE TABLE kuleszad.kreatura AS SELECT * FROM wikingowie.kreatura;
+
+CREATE TABLE kuleszad.zasob AS SELECT * FROM wikingowie.zasob;
+
+CREATE TABLE kuleszad.ekwipunek AS SELECT * FROM wikingowie.ekwipunek;
+
