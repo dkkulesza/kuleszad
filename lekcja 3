@@ -1,0 +1,33 @@
+CREATE TABLE kuleszad.kreatura AS SELECT * FROM wikingowie.kreatura;
+
+CREATE TABLE kuleszad.zasob AS SELECT * FROM wikingowie.zasob;
+
+CREATE TABLE kuleszad.ekwipunek AS SELECT * FROM wikingowie.ekwipunek;
+
+ select * from zasob;
+
+ SELECT * FROM zasob WHERE rodzaj='jedzenie';
+ 
+ 1.3 ? nie rozumiem
+ 
+ select * from kreatura where rodzaj != 'wiedzma' and udzwig >= 50;
+ 
+ select * from zasob where waga > 2 and waga < 5;
+
+select * from kreatura where nazwa LIKE '%or%' and udzwig > 30 and udzwig < 70;
+
+select * from zasob where MONTH('dataPozyskania')= '7'  AND MONTH('dataPozyskania')='8';
+
+SELECT * FROM kreatura ORDER BY dataUr ASC LIMIT 5;
+
+select DISTINCT rodzaj from zasob;
+
+select CONCAT(nazwa, rodzaj) AS 'nazwa-rodzaj' from kreatura where rodzaj like 'wi%';
+
+select nazwa, ilosc*waga AS 'waga_calkowita' from zasob  where dataPozyskania between '2000-01-01' and '2007-12-31';
+
+select nazwa, waga, (waga*0.7) AS 'masa-netto', (waga*0.3) AS 'odpadki' from zasob where rodzaj = 'jedzenie';
+
+select * from zasob where rodzaj = NULL;
+
+select DISTINCT rodzaj from zasob where nazwa like 'Ba%' and nazwa like '%os' order by nazwa ASC;
